@@ -798,8 +798,8 @@ def pull_external(ctx, filename):
     # but attach the base filename for readability.
     # The bit-shifting rids us of ugly leading - characters.
     hashed_filename = hash_func(filename)
-    rel_path = path.join('webassets-external',
-        "%s_%s" % (hashed_filename, path.basename(filename)))
+    rel_path = path.join('webassets-external', path.dirname(filename),
+        "%s_%s" % (path.basename(filename), hashed_filename))
     full_path = path.join(ctx.directory, rel_path)
 
     # Copy the file if necessary
